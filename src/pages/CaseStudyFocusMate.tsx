@@ -3,6 +3,8 @@ import { ArrowLeft, User, Target, Frown, Sparkles, Smartphone, Clock, Brain, Che
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { UserFlow } from './UserFlow';
+
 
 const userPersonas = [
   {
@@ -51,14 +53,6 @@ const userPersonas = [
   },
 ];
 
-const userFlowSteps = [
-  { step: 1, title: 'Onboarding', description: 'User downloads app and completes quick setup questionnaire' },
-  { step: 2, title: 'Goal Setting', description: 'Define personal screen time goals and focus areas' },
-  { step: 3, title: 'Baseline Tracking', description: 'App monitors usage patterns for 7 days without intervention' },
-  { step: 4, title: 'Insights Delivery', description: 'Personalized insights and recommendations presented' },
-  { step: 5, title: 'Focus Mode Activation', description: 'User activates focus sessions with customizable settings' },
-  { step: 6, title: 'Progress Review', description: 'Weekly summary with achievements and areas for improvement' },
-];
 
 const featureComparison = [
   { feature: 'Screen Time Tracking', focusMate: true, competitor1: true, competitor2: true },
@@ -264,46 +258,7 @@ export default function CaseStudyFocusMate() {
       </section>
 
       {/* User Flow */}
-      <section className="py-20 px-4 md:px-8 bg-card/30">
-        <div className="container mx-auto max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              User <span className="gradient-text">Flow</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              The core journey from app discovery to sustained habit change.
-            </p>
-          </motion.div>
-
-          <div className="relative">
-            {/* Flow Steps */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {userFlowSteps.map((item, index) => (
-                <motion.div
-                  key={item.step}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="glass-card p-6 relative"
-                >
-                  <div className="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-purple-500 flex items-center justify-center font-bold text-white">
-                    {item.step}
-                  </div>
-                  <h3 className="font-semibold text-lg mb-2 mt-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <UserFlow />
 
       {/* Low Fidelity Wireframes */}
       <section className="py-20 px-4 md:px-8">

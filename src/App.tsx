@@ -9,8 +9,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 import CaseStudyFocusMate from "./pages/CaseStudyFocusMate";
 import CaseStudyCampusConnect from "./pages/CaseStudyCampusConnect";
 import CaseStudySaveEasy from "./pages/CaseStudySaveEasy";
-
-
+import { UserFlow } from "./pages/UserFlow";
 
 import NotFound from "./pages/NotFound";
 

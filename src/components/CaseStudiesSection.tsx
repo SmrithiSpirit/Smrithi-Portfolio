@@ -1,34 +1,36 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Smartphone, Brain, Target } from 'lucide-react';
+import { Link } from "react-router-dom";
+
 
 
 const caseStudies = [
   {
-    id: 'focusmate',
-    title: 'FocusMate: Build Better Screen Habits',
-    description: 'A comprehensive UX case study exploring how to help users develop healthier relationships with their digital devices through mindful design.',
-    tags: ['UX Research', 'User Personas', 'Wireframing', 'User Flow'],
+    id: "focusmate",
+    title: "FocusMate: Build Better Screen Habits",
+    description:
+      "A comprehensive UX case study exploring how to help users develop healthier relationships with their digital devices through mindful design.",
+    tags: ["UX Research", "User Personas", "Wireframing", "User Flow"],
     icon: Smartphone,
-    color: 'teal',
-    bgImage: '/public/casestudyImages/focusMate.jpg',
+    bgImage: "/casestudyImages/focusMate.png",
   },
   {
-    id: 'campusconnect',
-    title: 'Campus Connect, a unified, AI-enhanced platform for student services',
-    description: 'CampusConnect is a smart collaboration platform designed to make campus life more connected and effortless for both students and lecturers. It brings together everything—group discussions, event updates, resource sharing, and peer connections',
-    tags: ['UX Research', 'User Personas', 'Wireframing', 'User Flow'],
+    id: "campusconnect",
+    title: "Campus Connect, a unified AI-enhanced platform for student services",
+    description:
+      "CampusConnect is a smart collaboration platform designed to make campus life more connected and effortless for both students and lecturers.",
+    tags: ["UX Research", "User Personas", "Wireframing", "User Flow"],
     icon: Smartphone,
-    color: 'teal',
-    bgImage: '/public/casestudyImages/campusConnect.jpg',
+    bgImage: "/casestudyImages/campusConnect.jpg",
   },
   {
-    id: 'saveeasy',
-    title: 'SaveEase – Simple savings for first-time earners',
-    description: 'SaveEasy is a mobile-first budgeting app designed specifically for students. It helps them track expenses, set financial goals, and build healthy saving habits through gamification and personalized insights.',
-    tags: ['UX Research', 'User Personas', 'Wireframing', 'User Flow'],
+    id: "saveeasy",
+    title: "SaveEase – Simple savings for first-time earners",
+    description:
+      "SaveEasy is a mobile-first budgeting app designed for students to track expenses, set financial goals, and build healthy saving habits.",
+    tags: ["UX Research", "User Personas", "Wireframing", "User Flow"],
     icon: Smartphone,
-    color: 'teal',
-    bgImage: '/public/casestudyImages/saveEasy.jpg',
+    bgImage: "/casestudyImages/saveEasy.jpg",
   },
 ];
 
@@ -54,36 +56,25 @@ export const CaseStudiesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-4 max-w-8xl mx-auto">
-          {caseStudies.map((study, index) => (
-            // <motion.a
-            //   key={study.id}
-            //   href={`/case-studies/${study.id}`}
-            //   target="_blank"
-            //   rel="noopener noreferrer"
-            //   initial={{ opacity: 0, y: 30 }}
-            //   whileInView={{ opacity: 1, y: 0 }}
-            //   viewport={{ once: true }}
-            //   transition={{ duration: 0.5, delay: index * 0.1 }}
-            //   className="group glass-card p-8 hover-glow block"
-            // >
-            <motion.a
-              key={study.id}
-              href={`/case-studies/${study.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`
-                group glass-card p-12 hover-glow block relative overflow-hidden
-                before:absolute before:inset-0 
-                before:bg-[url('${study.bgImage}')] 
-                before:bg-cover before:bg-center before:bg-no-repeat 
-                before:opacity-30 before:pointer-events-none
-              `}
-            >
+          <div className="grid md:grid-cols-2 gap-4 max-w-8xl mx-auto">
+            {caseStudies.map((study, index) => (
+              <motion.a
+                key={study.id}
+                href={`#/case-studies/${study.id}`}   // FIXED
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`
+                  group glass-card p-12 hover-glow block relative overflow-hidden
+                  before:absolute before:inset-0 
+                  before:bg-[url('${study.bgImage}')] 
+                  before:bg-cover before:bg-center before:bg-no-repeat 
+                  before:opacity-30 before:pointer-events-none
+                `}
+              >
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
                   <study.icon className="w-8 h-8 text-primary" />
@@ -117,6 +108,7 @@ export const CaseStudiesSection = () => {
 
           ))}
         </div>
+        
       </div>
     </section>
   );
