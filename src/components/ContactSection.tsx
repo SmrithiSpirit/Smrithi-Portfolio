@@ -81,22 +81,21 @@ export const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-5xl mx-auto">
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
-          >
-            <div className="glass-card p-8">
-              <h3 className="font-display text-2xl font-semibold mb-6 gradient-text">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="glass-card p-8 max-w-5xl mx-auto"
+        >
+          <div className="grid lg:grid-cols-2 gap-10">
+            {/* Contact Info */}
+            <div className="space-y-6">
+              <h3 className="font-display text-2xl font-semibold gradient-text">
                 Let's Connect
               </h3>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-muted-foreground">
                 I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
-
               <div className="space-y-4">
                 {contactInfo.map((item, index) => (
                   <motion.div
@@ -137,15 +136,9 @@ export const ContactSection = () => {
                 ))}
               </div>
             </div>
-          </motion.div>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
+            {/* Contact Form */}
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Name
@@ -207,8 +200,8 @@ export const ContactSection = () => {
                 )}
               </Button>
             </form>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

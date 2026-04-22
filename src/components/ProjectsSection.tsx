@@ -51,89 +51,89 @@ export const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  return (
-    <section id="projects" className="section-padding relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px]" />
+  // return (
+  //   <section id="projects" className="section-padding relative overflow-hidden">
+  //     {/* Background accents */}
+  //     <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[150px]" />
 
-      <div className="container mx-auto relative z-10" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Impactful products that transformed user experiences and drove business growth
-          </p>
-        </motion.div>
+  //     <div className="container mx-auto relative z-10" ref={ref}>
+  //       <motion.div
+  //         initial={{ opacity: 0, y: 40 }}
+  //         animate={isInView ? { opacity: 1, y: 0 } : {}}
+  //         transition={{ duration: 0.6 }}
+  //         className="text-center mb-16"
+  //       >
+  //         <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
+  //           Featured <span className="gradient-text">Projects</span>
+  //         </h2>
+  //         <p className="text-muted-foreground max-w-2xl mx-auto">
+  //           Impactful products that transformed user experiences and drove business growth
+  //         </p>
+  //       </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className="group relative"
-            >
-              <div className="glass-card p-8 h-full hover-glow transition-all duration-500 hover:-translate-y-2">
-                {/* Icon with gradient */}
-                <div
-                  className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${project.gradient} mb-6`}
-                >
-                  <project.icon className="w-8 h-8 text-white" />
-                </div>
+  //       <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+  //         {projects.map((project, index) => (
+  //           <motion.div
+  //             key={project.title}
+  //             initial={{ opacity: 0, y: 40 }}
+  //             animate={isInView ? { opacity: 1, y: 0 } : {}}
+  //             transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+  //             className="group relative"
+  //           >
+  //             <div className="glass-card p-8 h-full hover-glow transition-all duration-500 hover:-translate-y-2">
+  //               {/* Icon with gradient */}
+  //               <div
+  //                 className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${project.gradient} mb-6`}
+  //               >
+  //                 <project.icon className="w-8 h-8 text-white" />
+  //               </div>
 
-                {/* Title */}
-                <h3 className="font-display text-xl lg:text-2xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
+  //               {/* Title */}
+  //               <h3 className="font-display text-xl lg:text-2xl font-semibold text-foreground mb-4 group-hover:text-primary transition-colors">
+  //                 {project.title}
+  //               </h3>
 
-                {/* Description */}
-                <p className="text-muted-foreground mb-4">{project.description}</p>
+  //               {/* Description */}
+  //               <p className="text-muted-foreground mb-4">{project.description}</p>
 
-                {/* Impact */}
-                <div className="p-4 rounded-lg bg-muted/30 border border-border mb-6">
-                  <p className="text-sm">
-                    <span className="text-primary font-medium">Impact: </span>
-                    <span className="text-muted-foreground">{project.impact}</span>
-                  </p>
-                </div>
+  //               {/* Impact */}
+  //               <div className="p-4 rounded-lg bg-muted/30 border border-border mb-6">
+  //                 <p className="text-sm">
+  //                   <span className="text-primary font-medium">Impact: </span>
+  //                   <span className="text-muted-foreground">{project.impact}</span>
+  //                 </p>
+  //               </div>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="skill-pill text-xs">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+  //               {/* Tags */}
+  //               <div className="flex flex-wrap gap-2 mb-6">
+  //                 {project.tags.map((tag) => (
+  //                   <span key={tag} className="skill-pill text-xs">
+  //                     {tag}
+  //                   </span>
+  //                 ))}
+  //               </div>
 
-                {/* CTA */}
-                <Button
-                  variant="ghost"
-                  className="group/btn text-muted-foreground hover:text-primary p-0"
-                  asChild
-                >
-                  <Link to={`/projects/${project.id}`}>
-                    <span>View Details</span>
-                    <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
+  //               {/* CTA */}
+  //               <Button
+  //                 variant="ghost"
+  //                 className="group/btn text-muted-foreground hover:text-primary p-0"
+  //                 asChild
+  //               >
+  //                 <Link to={`/projects/${project.id}`}>
+  //                   <span>View Details</span>
+  //                   <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+  //                 </Link>
+  //               </Button>
+  //             </div>
 
-              {/* Glow effect on hover */}
-              <div
-                className={`absolute -inset-0.5 bg-gradient-to-r ${project.gradient} rounded-xl blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+  //             {/* Glow effect on hover */}
+  //             <div
+  //               className={`absolute -inset-0.5 bg-gradient-to-r ${project.gradient} rounded-xl blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10`}
+  //             />
+  //           </motion.div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   </section>
+  // );
 };

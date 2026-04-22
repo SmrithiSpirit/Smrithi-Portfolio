@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Smartphone, Brain, Target } from 'lucide-react';
+import { ExternalLink, Brain, GraduationCap, PiggyBank } from 'lucide-react';
 import { Link } from "react-router-dom";
 
 
@@ -11,7 +11,7 @@ const caseStudies = [
     description:
       "A comprehensive UX case study exploring how to help users develop healthier relationships with their digital devices through mindful design.",
     tags: ["UX Research", "User Personas", "Wireframing", "User Flow"],
-    icon: Smartphone,
+    icon: Brain,
     bgImage: "/casestudyImages/focusMate.png",
   },
   {
@@ -20,7 +20,7 @@ const caseStudies = [
     description:
       "CampusConnect is a smart collaboration platform designed to make campus life more connected and effortless for both students and lecturers.",
     tags: ["UX Research", "User Personas", "Wireframing", "User Flow"],
-    icon: Smartphone,
+    icon: GraduationCap,
     bgImage: "/casestudyImages/campusConnect.jpg",
   },
   {
@@ -29,7 +29,7 @@ const caseStudies = [
     description:
       "SaveEasy is a mobile-first budgeting app designed for students to track expenses, set financial goals, and build healthy saving habits.",
     tags: ["UX Research", "User Personas", "Wireframing", "User Flow"],
-    icon: Smartphone,
+    icon: PiggyBank,
     bgImage: "/casestudyImages/saveEasy.jpg",
   },
 ];
