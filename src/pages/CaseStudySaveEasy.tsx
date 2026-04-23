@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, Target, Frown, Clock, PiggyBank, CheckCircle, XCircle, TrendingUp, BookOpen, Heart, Users } from 'lucide-react';
+import { ArrowLeft, Target, Clock, PiggyBank, CheckCircle, XCircle, TrendingUp, BookOpen, Heart, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -179,6 +180,51 @@ function UserProfileCard({ profile, index }: { profile: typeof userProfiles[numb
   );
 }
 
+function UserProfileCarousel() {
+  const pairs: (typeof userProfiles)[] = [];
+  for (let i = 0; i < userProfiles.length; i += 2) {
+    pairs.push(userProfiles.slice(i, i + 2));
+  }
+  const [slide, setSlide] = useState(0);
+  const go = (next: number) => setSlide(next);
+
+  return (
+    <div className="glass-card p-6 w-full">
+      <div className="grid sm:grid-cols-2 gap-4 mb-6">
+        {pairs[slide].map((profile, i) => (
+          <UserProfileCard key={profile.id} profile={profile} index={i} />
+        ))}
+      </div>
+      <div className="flex items-center justify-center gap-6">
+        <button
+          onClick={() => go((slide - 1 + pairs.length) % pairs.length)}
+          className="p-2 rounded-full hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground border border-white/10"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <div className="flex gap-2">
+          {pairs.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => go(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${slide === i ? 'w-6 bg-primary' : 'w-2 bg-white/20'}`}
+            />
+          ))}
+        </div>
+        <button
+          onClick={() => go((slide + 1) % pairs.length)}
+          className="p-2 rounded-full hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground border border-white/10"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </div>
+      <p className="text-center text-xs text-muted-foreground mt-3">
+        {slide + 1} / {pairs.length}
+      </p>
+    </div>
+  );
+}
+
 // ─── Page ──────────────────────────────────────────────────────────────────────
 
 export default function CaseStudySaveEasy() {
@@ -336,7 +382,7 @@ export default function CaseStudySaveEasy() {
             </p>
           </motion.div>
           <div className="grid md:grid-cols-3 gap-6">
-            {jtbd.map(({ type, icon: Icon, color, accent, jobs }, i) => (
+            {jtbd.map(({ type, icon: Icon, accent, jobs }, i) => (
               <motion.div
                 key={type}
                 initial={{ opacity: 0, y: 20 }}
@@ -438,11 +484,7 @@ export default function CaseStudySaveEasy() {
               Observed pain points across five research participants, spanning different roles and financial behaviors.
             </p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-            {userProfiles.map((profile, i) => (
-              <UserProfileCard key={profile.id} profile={profile} index={i} />
-            ))}
-          </div>
+          <UserProfileCarousel />
         </div>
       </section>
 
