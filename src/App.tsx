@@ -9,6 +9,7 @@ import ProjectDetails from "./pages/ProjectDetails";
 import CaseStudyFocusMate from "./pages/CaseStudyFocusMate";
 import CaseStudyCampusConnect from "./pages/CaseStudyCampusConnect";
 import CaseStudySaveEasy from "./pages/CaseStudySaveEasy";
+import CaseStudyPocketly from "./pages/CaseStudyPocketly";
 import { UserFlow } from "./pages/UserFlow";
 
 import NotFound from "./pages/NotFound";
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/case-studies/focusmate" element={<CaseStudyFocusMate />} />
           <Route path="/case-studies/campusconnect" element={<CaseStudyCampusConnect />} />
           <Route path="/case-studies/saveeasy" element={<CaseStudySaveEasy />} />
+          <Route path="/case-studies/pocketly" element={<CaseStudyPocketly />} />
         </Routes>
       </HashRouter>
     </TooltipProvider>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Brain, GraduationCap, PiggyBank } from 'lucide-react';
+import { ExternalLink, Brain, GraduationCap, PiggyBank, Bot } from 'lucide-react';
 import { Link } from "react-router-dom";
 
 
@@ -31,6 +31,15 @@ const caseStudies = [
     tags: ["UX Research", "User Personas", "Wireframing", "User Flow"],
     icon: PiggyBank,
     bgImage: "/casestudyImages/saveEasy.jpg",
+  },
+  {
+    id: "pocketly",
+    title: "Pocketly – Adaptive Budgeting Agent",
+    description:
+      "An AI-first budgeting product that reasons about user goals, spending patterns, and time remaining in the month — proactively guiding young professionals toward consistent savings.",
+    tags: ["PRD", "Agentic AI", "n8n", "Prototype", "KPIs"],
+    icon: Bot,
+    bgImage: "/casestudyImages/pocketly.jpg",
   },
 ];
 
