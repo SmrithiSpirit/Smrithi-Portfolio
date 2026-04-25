@@ -66,7 +66,7 @@ export const ContactSection = () => {
       {/* Background accents */}
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[150px]" />
 
-      <div className="container mx-auto relative z-10" ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -85,11 +85,11 @@ export const ContactSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass-card p-4 sm:p-6 md:p-8 max-w-5xl mx-auto"
+          className="glass-card p-4 sm:p-6 md:p-8 max-w-5xl mx-auto overflow-hidden"
         >
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 min-w-0">
             {/* Contact Info */}
-            <div className="space-y-6">
+            <div className="space-y-6 min-w-0">
               <h3 className="font-display text-2xl font-semibold gradient-text">
                 Let's Connect
               </h3>
@@ -103,13 +103,14 @@ export const ContactSection = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    className="w-full overflow-hidden"
                   >
                     {item.href ? (
                       <a
                         href={item.href}
                         target={item.href.startsWith('http') ? '_blank' : undefined}
                         rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
+                        className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group w-full overflow-hidden"
                       >
                         <div className="p-2 rounded-lg bg-gradient-primary flex-shrink-0">
                           <item.icon className="w-5 h-5 text-primary-foreground" />
@@ -122,7 +123,7 @@ export const ContactSection = () => {
                         </div>
                       </a>
                     ) : (
-                      <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 border border-border">
+                      <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 border border-border w-full overflow-hidden">
                         <div className="p-2 rounded-lg bg-gradient-primary flex-shrink-0">
                           <item.icon className="w-5 h-5 text-primary-foreground" />
                         </div>
@@ -138,8 +139,8 @@ export const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+            <form onSubmit={handleSubmit} className="space-y-6 min-w-0 w-full overflow-hidden">
+              <div className="w-full min-w-0">
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Name
                 </label>
@@ -150,11 +151,11 @@ export const ContactSection = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="bg-muted/30 border-border focus:border-primary"
+                  className="bg-muted/30 border-border focus:border-primary w-full max-w-full"
                 />
               </div>
 
-              <div>
+              <div className="w-full min-w-0">
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                   Email
                 </label>
@@ -165,11 +166,11 @@ export const ContactSection = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="bg-muted/30 border-border focus:border-primary"
+                  className="bg-muted/30 border-border focus:border-primary w-full max-w-full"
                 />
               </div>
 
-              <div>
+              <div className="w-full min-w-0">
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                   Message
                 </label>
@@ -180,7 +181,7 @@ export const ContactSection = () => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                   rows={5}
-                  className="bg-muted/30 border-border focus:border-primary resize-none"
+                  className="bg-muted/30 border-border focus:border-primary resize-none w-full max-w-full"
                 />
               </div>
 
