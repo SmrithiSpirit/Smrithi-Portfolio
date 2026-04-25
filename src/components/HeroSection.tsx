@@ -89,7 +89,7 @@ export const HeroSection = () => {
                 className="group border-border hover:border-primary/50 hover:bg-primary/5"
                 asChild
               >
-                <a href="/smrithi-ravikumar-resume.pdf" download="Smrithi-Ravikumar-Resume.pdf">
+                <a href={`${import.meta.env.BASE_URL}smrithi-ravikumar-resume.pdf`} download="Smrithi-Ravikumar-Resume.pdf">
                   <Download className="w-5 h-5 mr-2" />
                   Download Resume
                 </a>
