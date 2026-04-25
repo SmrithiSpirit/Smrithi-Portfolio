@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Brain, GraduationCap, PiggyBank, Bot } from 'lucide-react';
 import { Link } from "react-router-dom";
 
+const base = import.meta.env.BASE_URL;
+
 
 
 const caseStudies = [
@@ -76,14 +78,13 @@ export const CaseStudiesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`
-                  group glass-card p-12 hover-glow block relative overflow-hidden
-                  before:absolute before:inset-0 
-                  before:bg-[url('${study.bgImage}')] 
-                  before:bg-cover before:bg-center before:bg-no-repeat 
-                  before:opacity-30 before:pointer-events-none
-                `}
+                className="group glass-card p-12 hover-glow block relative overflow-hidden"
               >
+                {/* Background image using base-aware path */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 pointer-events-none"
+                  style={{ backgroundImage: `url(${base}${study.bgImage.replace(/^\//, '')})` }}
+                />
               <div className="flex flex-col md:flex-row gap-6 items-start">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
                   <study.icon className="w-8 h-8 text-primary" />

@@ -327,7 +327,7 @@ export default function CaseStudyPocketly() {
             className="flex justify-center"
           >
             <img
-              src="/pocketly-flow.png"
+              src={`${import.meta.env.BASE_URL}pocketly-flow.png`}
               alt="Pocketly UX Flow Diagram"
               className="w-full max-w-md rounded-xl"
             />

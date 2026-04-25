@@ -3,20 +3,22 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { ExternalLink } from 'lucide-react';
 
+const base = import.meta.env.BASE_URL;
+
 const articles = [
   {
     title: 'Positioning the "Unused Feature" as a specific metric',
-    bg: '/article1.jpg',
+    bg: `${base}article1.jpg`,
     href: 'https://www.linkedin.com/posts/smrithibr_productdiscovery-productmanagement-userbehavior-ugcPost-7446611415412568064-OnlH?utm_source=share&utm_medium=member_desktop',
   },
   {
     title: 'Stuck on a blank page? Sometimes the best way forward is to deep dive into the problem, not the solution.',
-    bg: '/article2.jpg',
+    bg: `${base}article2.jpg`,
     href: 'https://www.linkedin.com/posts/smrithibr_productthinking-genai-ecommerce-ugcPost-7436846592046870528-1WYq?utm_source=share&utm_medium=member_desktop',
   },
   {
     title: 'A simple question: How would you improve seller onboarding CSAT at Amazon?',
-    bg: '/article3.jpg',
+    bg: `${base}article3.jpg`,
     href: 'https://www.linkedin.com/posts/smrithibr_a-simple-question-how-would-you-improve-ugcPost-7435410200389410816-P88y?utm_source=share&utm_medium=member_desktop',
   },
 ];
