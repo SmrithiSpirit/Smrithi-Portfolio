@@ -85,9 +85,9 @@ export const ContactSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="glass-card p-8 max-w-5xl mx-auto"
+          className="glass-card p-4 sm:p-6 md:p-8 max-w-5xl mx-auto"
         >
-          <div className="grid lg:grid-cols-2 gap-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10">
             {/* Contact Info */}
             <div className="space-y-6">
               <h3 className="font-display text-2xl font-semibold gradient-text">
@@ -111,24 +111,24 @@ export const ContactSection = () => {
                         rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 group"
                       >
-                        <div className="p-2 rounded-lg bg-gradient-primary">
+                        <div className="p-2 rounded-lg bg-gradient-primary flex-shrink-0">
                           <item.icon className="w-5 h-5 text-primary-foreground" />
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <p className="text-sm text-muted-foreground">{item.label}</p>
-                          <p className="text-foreground font-medium group-hover:text-primary transition-colors">
+                          <p className="text-foreground font-medium group-hover:text-primary transition-colors truncate">
                             {item.value}
                           </p>
                         </div>
                       </a>
                     ) : (
                       <div className="flex items-center gap-4 p-4 rounded-lg bg-muted/30 border border-border">
-                        <div className="p-2 rounded-lg bg-gradient-primary">
+                        <div className="p-2 rounded-lg bg-gradient-primary flex-shrink-0">
                           <item.icon className="w-5 h-5 text-primary-foreground" />
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <p className="text-sm text-muted-foreground">{item.label}</p>
-                          <p className="text-foreground font-medium">{item.value}</p>
+                          <p className="text-foreground font-medium truncate">{item.value}</p>
                         </div>
                       </div>
                     )}
