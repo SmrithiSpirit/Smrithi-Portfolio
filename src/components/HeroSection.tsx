@@ -6,7 +6,7 @@ import profilePhoto from "@/assets/profile-photo.jpg";
 
 export const HeroSection = () => {
   const scrollToWork = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('case-studies')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -87,9 +87,12 @@ export const HeroSection = () => {
                 size="lg"
                 variant="outline"
                 className="group border-border hover:border-primary/50 hover:bg-primary/5"
+                asChild
               >
-                <Download className="w-5 h-5 mr-2" />
-                Download Resume
+                <a href="/smrithi-ravikumar-resume.pdf" download="Smrithi-Ravikumar-Resume.pdf">
+                  <Download className="w-5 h-5 mr-2" />
+                  Download Resume
+                </a>
               </Button>
             </motion.div>
           </motion.div>
